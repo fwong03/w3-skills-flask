@@ -1,0 +1,20 @@
+/*your CSS goes here*/
+
+body {
+    line-height: 30px;
+}
+
+input {
+    background-color: #FFFF66;
+}
+
+.emphasis {
+    font-weight: bold;
+}
+
+.blueborder {
+    border-style: solid;
+    border-color: #999966;
+    width: 500px;
+}
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Apply to a Job {% endblock %}
+
+{% block CSS %}<link rel="stylesheet" type="text/css" href="styles.css"> {% endblock %} 
+
+{% block content %}
+
+    <h2>So tell me what you want, what you really really want</h2>
+            <h4 class="blueborder"> Hi! Enter details here so we know what job you want to apply to.</h4>
+            <form action="/application" method="POST">
+                <label>First Name: <input type="text" name="firstname"
+                    placeholder="e.g. Rainbow">
+                </label><br>
+                
+                <div class="emphasis">
+                    <label>Last Name: <input type="text" name="lastname" placeholder="e.g., Brite">
+                </label><br></div>
+                
+                <label>Required Salary: $ <input type="text" name="salary"
+                    placeholder="No commas; e.g., 1000000">
+                </label><br>
+                
+                <label>Job Applying For:
+                    <select name="job">
+                        <option value="software">Software Engineer</option>
+                        <option value="qa">QA Engineer</option>
+                        <option value="product">Product Manager</option>
+                    </select></label><br>
+                
+                <input type="submit">
+            </form>
+{% endblock %}
