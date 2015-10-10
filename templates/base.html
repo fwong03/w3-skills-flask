@@ -2,13 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
-        <title>{% block title %} TITLE GOES HERE {% endblock %}</title>
-        {% endblock %}
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+        <title>{% block title %}TITLE GOES HERE{% endblock %}</title>
+
     </head>
 
-    <body>
+    <body> 
         {% block content %} BODY CONTENT HERE {% endblock %}
     </body>
+
 </html>
