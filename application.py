@@ -9,7 +9,6 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def index_page():
     """Show an index page."""
@@ -30,17 +29,22 @@ def application_confirmation():
                 "product": "Product Manager"
             }
 
+    salary = request.form.get("salary")
+    salary = salary.replace(',', '')
+
+    try:
+        salary = int(salary)
+    except ValueError:
+        return "Salary must be a valid number. Press the back key to return."
+
     firstname = request.form.get("firstname")
     lastname = request.form.get("lastname")
-    salary = int(request.form.get("salary"))
     job = jobs[request.form.get("job")]
+    salary = "{:,}".format(salary)
 
-    return "first name: %s, last name: %s, salary: %d, job: %s" % (firstname,
-        lastname, salary, job)
-
-    # return render_template("application-response.html",
-    #                         fname=firstname, lname=lastname,
-    #                         money=salary, position=job)
+    return render_template("application-response.html",
+                            fname=firstname, lname=lastname,
+                            money=salary, position=job)
 
 
 if __name__ == "__main__":
