@@ -24,18 +24,20 @@ def application_page():
 @app.route("/application-response", methods=["POST"])
 def application_confirmation():
     """Show application submission confirmation"""
-    jobs = {"software": "Software Engineer",
-                "qa": "QA Engineer",
-                "product": "Product Manager"
-            }
 
+    # Check if user entered a valid number for salary requirement.
     salary = request.form.get("salary")
     salary = salary.replace(',', '')
 
     try:
         salary = int(salary)
     except ValueError:
-        return "Salary must be a valid number. Press the back key to return."
+        return "Required salary must be a valid number. Press the back key to return."
+
+    jobs = {"software": "Software Engineer",
+            "qa": "QA Engineer",
+            "product": "Product Manager"
+            }
 
     firstname = request.form.get("firstname")
     lastname = request.form.get("lastname")
